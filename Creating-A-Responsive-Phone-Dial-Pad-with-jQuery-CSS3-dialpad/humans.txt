@@ -1,0 +1,15 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    admin@waan.it -- developer -- waanit
+
+# THANKS
+
+    html5-boilerplate, Jquery, Google, Fontawesome, Bootstrap and Compass
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3, SASS, Compass, Fontawesome
+    Normalize.css, jQuery, Modernizr

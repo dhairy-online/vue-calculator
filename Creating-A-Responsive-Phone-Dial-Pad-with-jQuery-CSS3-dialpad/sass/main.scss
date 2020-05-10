@@ -1,0 +1,293 @@
+/* ==========================================================================
+   main.css
+   ========================================================================== */
+/* ==========================================================================
+   Import mixin
+   ========================================================================== */
+@import "compass/reset";
+@import "compass/css3";
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+html,
+button,
+input,
+select,
+textarea{ color: #222; }
+
+html{
+
+  font: 100% "Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+  line-height: 1.4;
+}
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+::-moz-selection{
+
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection{
+
+  background: #b3d4fc;
+  text-shadow: none;
+}
+/*
+ * A better looking default horizontal rule
+ */
+hr{
+
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+/*
+ * Remove the gap between images, videos, audio and canvas and the bottom of
+ * their containers: h5bp.com/i/440
+ */
+audio,
+canvas,
+img,
+video{ vertical-align: middle; }
+/*
+ * Remove default fieldset styles.
+ */
+fieldset{
+
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+/*
+ * Allow only vertical resizing of textareas.
+ */
+textarea{ resize: vertical; }
+/* ==========================================================================
+   Browse Happy prompt
+   ========================================================================== */
+.browsehappy{
+
+  margin: 0px 0px 10px 0px;
+  padding: 0.5em 0em;
+  background: #aac739;
+  color: #4f4f4f;
+  text-align: center;
+}
+/* ==========================================================================
+   Custom mixins
+   ========================================================================== */
+@mixin clear(){
+
+  &:before, &:after{
+
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden;
+  }
+
+  &:after{ clear: both; }
+}
+/* ==========================================================================
+   Tones
+   ========================================================================== */
+$black: #000;
+$white: #fff;
+//grey tone
+$grey_80: #4d4d4d;
+$grey_20: #c1c1c1;
+// Blue tones
+$blue_bright: #00caf2;
+$blue_light: #b2f2ff;
+// Dark Blue Tones
+$dblue_light: #2d3743;
+// Violet tones
+$violet_dark: #1d1918;
+//green Tone
+$green_normal: #009933;
+$green_light: #00cc33;
+/* ==========================================================================
+   User styles
+   ========================================================================== */
+body{
+
+  background: $white;
+  color: $black;
+}
+
+.dialpad{
+
+  .number{
+
+    position: relative;
+    z-index: 2;
+    padding: 15px 20px;
+    color: $grey_80;
+    font-weight: 300;
+    font-size: 40px;
+    background: $white;
+    height: 78px;
+  }
+
+  .dials{
+
+    @include clear;
+    margin: -1px 0 0 -1px;
+    background: $violet_dark;
+    cursor: pointer;
+
+    .digits{
+
+      float: left;
+      width: 33.33%;
+
+      p{
+
+        font-weight: 600;
+        padding: 15px 25px;
+        border-top: 1px solid $grey_80;
+        border-right: 1px solid $black;
+        border-bottom: 1px solid $black;
+        border-left: 1px solid $grey_80;
+
+        strong{
+
+          font-size: 50px;
+          margin-right: 8px;
+          color: $white;
+        }
+      }
+
+      &:active{
+
+        background: $blue_bright;
+        border-top-color: $blue_light;
+      }
+    }
+  }
+}
+
+.compact {
+
+  .dials {
+
+    .digits {
+
+      p {
+
+        padding: 25px 15px;
+
+        strong {
+          font-size: 30px;
+        }
+        sup {
+
+          text-transform: uppercase;
+          color: $grey_20;
+        }
+      }
+    }
+
+    .pad-action {
+
+      background: $green_normal;
+
+      &:active {
+        background: $green_light;
+      }
+    }
+  }
+}
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+/*
+ * Image replacement
+ */
+.ir{
+
+  background-color: transparent;
+  border: 0;
+  overflow: hidden;
+  /* IE 6/7 fallback */
+  *text-indent: -9999px;
+}
+
+.ir:before{
+
+  content: "";
+  display: block;
+  width: 0;
+  height: 150%;
+}
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+.hidden{
+
+  display: none !important;
+  visibility: hidden;
+}
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+.visuallyhidden{
+
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus{
+
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+.invisible{ visibility: hidden; }
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.clearfix:before,
+.clearfix:after{
+
+  content: " "; /* 1 */
+  display: table; /* 2 */
+}
+
+.clearfix:after{ clear: both; }
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.clearfix{ *zoom: 1; }

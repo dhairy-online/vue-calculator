@@ -7,7 +7,7 @@ An Open Source Calculator And Simplest Calculator Made by Vue.js
 Get started By cloning into vue-calculator
 ### Requirements
 
-npm
+     npm
 
 ```
 sudo apt install npm
